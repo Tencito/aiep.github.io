@@ -1,7 +1,7 @@
 <!DOCTYPE html> <!--Define que este documento es tipo HTML5-->
 <html lang="es"> <!--Idioma principal español-->
-<head> <!--contenedor del documento -->
-	<link rel="stylesheet" href="estilos.css"> <!--enlaza estilo de pagina, front, colores, vistas, etc -->
+<head> <!--contenedor del documento --> 
+    <link rel="stylesheet" href="estilos.css"> <!--enlaza estilo de pagina, front, colores, vistas, etc -->
     <meta charset="UTF-8"> <!--codificacion de caracteres-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ajusta la pagina a dispositivos moviles-->
     <title>El Faro</title> <!-- titulo de pagina -->
@@ -9,7 +9,7 @@
 <body> <!--contenido visible -->
     <header> <!-- encabezado, logos, secciones, etc -->
         <img src="imagenes/logo_el_faro.jpg" alt="Logo de El Faro" style="height: 50px;"> El Faro <!-- imagen tipo logo -->
-        </h1>
+        <div id="dateDisplay"></div> <!-- Lugar para la fecha y hora en vivo -->
         <nav> <!-- seccion de navegacion -->
             <ul> <!-- lista de elementos para la navegacion -->
                 <li><a href="#inicio">Inicio</a></li>
@@ -18,73 +18,160 @@
             </ul>
         </nav>
     </header>
-    
+
     <section id="inicio"> <!-- define secciones especificas, cada una con una id unica -->
         <h2>Noticias Generales</h2>
-        <article> <!-- articulo relacionado con la seccion -->
-        <h3>¿Quien es la mujer que disparo en Lo Valledor? Estos son los antecedentes que se conocen</h3>
-        <p>Segun informacion que llego al matinal, la mujer de nacionalidad chilena, que disparo contra personal de seguridad de Lo Valledor, seria vecina del mercado y trabajaria en el lugar hace años.</p>
-        <iframe width="560" height="315" src="https://mdstrm.com/embed/660aab81c0888357b9615ca0" frameborder="0" allowfullscreen></iframe> <!-- agrega video -->
-    </article>
-        <article>
-        <h3>“No estaba normal”: Apuntan a presunto consumo de drogas de mujer que disparo en Lo Valledor</h3>
-        <p>Uno de los locatarios de Lo Valledor entrego diversos antecedentes sobre la mujer que disparo a personal de seguridad del mercado. “Ella trabajaba antes adentro”, menciono el hombre.</p>
-        <iframe width="560" height="315" src="https://mdstrm.com/embed/660aadf2eaadaa324a2c293e" frameborder="0" allowfullscreen></iframe>
-    </article>
-        <article>
+        <div id="articlesInicio">
+            <article>
+                <h3>¿Quien es la mujer que disparo en Lo Valledor? Estos son los antecedentes que se conocen</h3>
+                <p>Segun informacion que llego al matinal, la mujer de nacionalidad chilena, que disparo contra personal de seguridad de Lo Valledor, seria vecina del mercado y trabajaria en el lugar hace años.</p>
+                <iframe width="560" height="315" src="https://mdstrm.com/embed/660aab81c0888357b9615ca0" frameborder="0" allowfullscreen></iframe> <!-- agrega video -->
+            </article>
+		 <article>
+        		<h3>“No estaba normal”: Apuntan a presunto consumo de drogas de mujer que disparo en Lo Valledor</h3>
+        		<p>Uno de los locatarios de Lo Valledor entrego diversos antecedentes sobre la mujer que disparo a personal de seguridad del mercado. “Ella trabajaba antes adentro”, menciono el hombre.</p>
+        		<iframe width="560" height="315" src="https://mdstrm.com/embed/660aadf2eaadaa324a2c293e" frameborder="0" allowfullscreen></iframe>
+    		 </article>
+            <article>
         <h3>Asi fue el momento en que mujer disparo en control en Lo Valledor: Equipo de CHV termino herido</h3>
         <p>Luego de intentar vulnerar el acceso al Mercado de Lo Valledor, una mujer fue retenida por personal de seguridad del lugar tras amenazarlos. Tras esto, tomo el arma de un funcionario y disparo en multiples ocasiones, dejando varios heridos.</p>
         <iframe width="560" height="315" src="https://mdstrm.com/embed/660a9f8077208008a4a499ef" frameborder="0" allowfullscreen></iframe>
     </article>
+        </div>
+        <p id="countInicio">Numero de articulos: 0</p> <!--contador de articulos-->
+        <h3>Añadir un nuevo articulo a Noticias Generales</h3>
+        <input type="text" id="titleInicio" placeholder="Titulo del articulo"> <!--para añadir un nuevo articulo-->
+        <textarea id="contentInicio" placeholder="Contenido del artículo"></textarea>
+        <button onclick="addArticle('inicio')">Publicar Artículo</button>
+	
     </section>
     
     <section id="deporte"> <!-- define secciones especificas, cada una con una id unica -->
         <h2>Deportes</h2>
-        <article>
-		<img src="imagenes/tenis.jpg" alt="Tenis" style="width:300px; height:auto;">
-            <h3>Ha subido casi 250 puestos en cuatro meses: La historia de Matias Soto, el chileno que jugo su primera final en un challenger</h3>
-            <p>Matias Soto (422) vive el mejor momento de su carrera. El copiapino de 24 años llego a la primera final challenger de su carrera en individuales. Lo hizo desde la qualy y pese a caer en el duelo por el titulo en San Luis Potosi en Mexico, saca cuentas alegres. El paso por el torneo azteca le valio un ascenso de 160 lugares en el ranking. Eso si, si se cuenta desde inicio de año, lo de Soto esta siendo aun mas magistral... El chileno, nominado tres veces por Nicolas Massu al equipo de Copa Davis, comenzo la temporada en el lugar 664 del escalafon en singles.</p>
-        </article>
-        <article>
+        <div id="articlesDeporte">
+            <article>
+                <img src="imagenes/tenis.jpg" alt="Tenis" style="width:300px; height:auto;">
+                <h3>Ha subido casi 250 puestos en cuatro meses: La historia de Matias Soto, el chileno que jugo su primera final en un challenger</h3>
+                <p>Matías Soto (422) vive el mejor momento de su carrera. El copiapino de 24 años llego a la primera final challenger de su carrera en individuales. Lo hizo desde la qualy y pese a caer en el duelo por el titulo en San Luis Potosi en Mexico, saca cuentas alegres. El paso por el torneo azteca le valio un ascenso de 160 lugares en el ranking. Eso si, si se cuenta desde inicio de año, lo de Soto esta siendo aún mas magistral... El chileno, nominado tres veces por Nicolas Massu al equipo de Copa Davis, comenzo la temporada en el lugar 664 del escalafon en singles.</p>
+            </article>
+		 <article>
 		<img src="imagenes/pelea.jpg" alt="Pelea" style="width:300px; height:auto;">
             <h3>Mira el tenso cruce de Iñigo Martinez, figura del Barcelona, con joven hincha que lo insulto a la salida del entrenamiento</h3>
             <p>El defensor Iñigo Martinez salio de la Ciudad Deportiva del club blaugrana cuando unos fanaticos lo insultaron. El futbolista, lejos de amilanarse o no tomarle importancia, se bajo de su auto y fue directo a encarar a los hinchas que le gritaban cosas.</p>
         </article>
-        <article>
+		 <article>
 		<img src="imagenes/rotura.jpg" alt="Rotura de ligamentos" style="width:300px; height:auto;">
             <h3>El calvario que afecta al fútbol argentino: 18 roturas de ligamentos en apenas 3 meses</h3>
             <p>Un extraño y preocupante fenomeno se ha tomado al futbol argentino. En apenas tres meses de competencia, son 18 los futbolistas que se han roto los ligamentos de la rodilla. El ultimo fin de semana, Lucas Blondel de Boca Juniors y Ulises Sanchez de Belgrano sufrieron lesiones ligamentarias. Estos problemas fisicos son los de mayor tiempo de recuperacion en el futbol.</p>
         </article>
+        </div>
+        <p id="countDeporte">Numero de articulos: 0</p>
+        <h3>Añadir un nuevo articulo a Deportes</h3>
+        <input type="text" id="titleDeporte" placeholder="Título del artículo">
+        <textarea id="contentDeporte" placeholder="Contenido del artículo"></textarea>
+        <button onclick="addArticle('deporte')">Publicar Artículo</button>
     </section>
     
     <section id="negocios"> <!-- define secciones especificas, cada una con una id unica -->
         <h2>Negocios</h2>
-        <article>
-		<img src="imagenes/dragonchino.jpg" alt="Dragón Chino" style="width:300px; height:auto;"> <!-- inserta una imagen, modifica sus medidas -->
-            <h3>La fuerza del "dragon": China sube 1.300% su presencia en los negocios chilenos en apenas 7 años</h3>
-            <p>En la cultura popular de China, el dragon simboliza varias cualidades, como el poder, la benevolencia, la buena fortuna y la prosperidad. A lo largo de las ultimas decadas, la prosperidad y el poder han sido algunos de "los responsables" por encaminar al pais asiatico a convertirse en una potencia mundial. Mientras el hecho asusta naciones como Estados Unidos, otras como Chile eligen captar ese interes. Entre 2016 y 2023, los negocios chinos tuvieron un aumento significativo en el pais. Los sectores mas atractivos para los empresarios son la mineria y el energetico, aunque hay tambien bastante interes en otros ambitos.</p>
-        </article>
-        <article>
+        <div id="articlesNegocios">
+            <article>
+                <img src="imagenes/dragonchino.jpg" alt="Dragón Chino" style="width:300px; height:auto;">
+                <h3>La fuerza del "dragón": China sube 1.300% su presencia en los negocios chilenos en apenas 7 años</h3>
+                <p>En la cultura popular de China, el dragon simboliza varias cualidades, como el poder, la benevolencia, la buena fortuna y la prosperidad. A lo largo de las últimas decadas, la prosperidad y el poder han sido algunos de "los responsables" por encaminar al país asiatico a convertirse en una potencia mundial. Mientras el hecho asusta naciones como Estados Unidos, otras como Chile eligen captar ese interes. Entre 2016 y 2023, los negocios chinos tuvieron un aumento significativo en el pais. Los sectores mas atractivos para los empresarios son la mineria y el energetico, aunque hay tambien bastante interes en otros ambitos.</p>
+            </article>
+		 <article>
 		<img src="imagenes/carbon.jpg" alt="Carbón" style="width:300px; height:auto;">
             <h3>El gran empresariado chino: Su estilo y los flancos que enfrentan en Chile</h3>
             <p>Formales y cuidadosos, la frontalidad del presidente de Tianqi contra la alianza SQM-Codelco es poco comun. De poca exposicion publica, prefieren que su trabajo hable por ellos. Cuentan con al menos tres gremios, pero el mas poderoso ni siquiera tiene sitio web. Realizan un intenso lobby sin intermediarios para resolver sus principales inquietudes en rubros donde deben enfrentar permanentemente al Estado como energia, concesiones y recursos naturales.</p>
         </article>
-        <article>
+		 <article>
 		<img src="imagenes/chino.jpg" alt="Empresariado Chino" style="width:300px; height:auto;">
             <h3>Carbon, hierro y petroleo: cinco graficos para tener en cuenta esta semana</h3>
             <p>El desmoronamiento de un puente en baltimore puede perturbar las operaciones de exportacion de materias primas procedentes d eun importante puerto en la costa oriental, lo que incluye una parte considerable de los cargamentos de carbon estadounidenses.
 El precio del mineral de hierro ronda los US$100 por tonelada ante la floja demanda del acero en China. Y prosigue el vertiginoso ritmo de negociaciones en el sector petrolero y gasistico, que ha empezado el año con fuerza</p>
         </article>
+        </div>
+        <p id="countNegocios">Numero de articulos: 0</p>
+        <h3>Añadir un nuevo articulo a Negocios</h3>
+        <input type="text" id="titleNegocios" placeholder="Título del artículo">
+        <textarea id="contentNegocios" placeholder="Contenido del articulo"></textarea>
+        <button onclick="addArticle('negocios')">Publicar Articulo</button>
     </section>
-	<footer>
+
+    
+    <footer> <!-- pie de pagina-->
+        <div id="contacto">  <!-- formulario de contacto-->
+            <h2>Contacto</h2>
+            <form id="contactForm">
+                <input type="text" id="contactName" placeholder="Tu Nombre">
+                <textarea id="contactMessage" placeholder="Tu Mensaje"></textarea>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </div>
         <p>&copy; 2024 El Faro. Todos los derechos reservados.</p>
-        <p>Contáctanos: <a href="mailto:info@elfaro.comnoesreal">info@elfaro.comnoesreal</a></p>
+        <p>Contáctanos: <a href="mailto:info@elfaronoesreal.com">info@elfaronoesreal.com</a></p>
         <ul>
-            <li><a href="https://www.facebook.com/elfaro.noesreal">Facebook</a></li>
-            <li><a href="https://www.twitter.com/elfaro.noesreal">Twitter</a></li>
-            <li><a href="https://www.instagram.com/elfaro.noesreal">Instagram</a></li>
+            <li><a href="https://www.facebook.com/elfaronoesreal">Facebook</a></li>
+            <li><a href="https://www.twitter.com/elfaronoesreal">Twitter</a></li>
+            <li><a href="https://www.instagram.com/elfaronoesreal">Instagram</a></li>
         </ul>
     </footer>
-    
+	
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+    initArticleCounts(); // Inicializa los contadores de artículos al cargar la página
+});
+
+function updateDateTime() {
+    const now = new Date();
+    const dateString = now.toLocaleTimeString('es-ES', { hour12: false }) + " " + now.toLocaleDateString('es-ES');
+    document.getElementById('dateDisplay').innerHTML = dateString;
+}
+
+function addArticle(section) {
+    let titleInput = `title${section.charAt(0).toUpperCase() + section.slice(1)}`;
+    let contentInput = `content${section.charAt(0).toUpperCase() + section.slice(1)}`;
+    let articlesDiv = `articles${section.charAt(0).toUpperCase() + section.slice(1)}`;
+    let countId = `count${section.charAt(0).toUpperCase() + section.slice(1)}`;
+
+    const title = document.getElementById(titleInput).value;
+    const content = document.getElementById(contentInput).value;
+
+    if (title && content) {
+        const newArticle = document.createElement('article'); 
+        newArticle.innerHTML = `<h3>${title}</h3><p>${content}</p>`;
+        document.getElementById(articlesDiv).appendChild(newArticle);
+        document.getElementById(titleInput).value = '';
+        document.getElementById(contentInput).value = '';
+        updateArticleCount(countId); // Actualiza el contador después de añadir un nuevo artículo
+    } else {
+        alert('Por favor, complete todos los campos para añadir un artículo.');
+    }
+}
+
+function initArticleCounts() {
+    updateArticleCount('countInicio');
+    updateArticleCount('countDeporte');
+    updateArticleCount('countNegocios');
+}
+
+function updateArticleCount(countId) {
+    let section = countId.slice(5).toLowerCase();
+    let articlesDiv = `articles${section.charAt(0).toUpperCase() + section.slice(1)}`;
+    let articles = document.querySelectorAll(`#${articlesDiv} article`).length; // Selecciona solo elementos 'article'
+    document.getElementById(countId).innerHTML = `Número de artículos: ${articles}`;
+}
+
+document.getElementById('contactForm').onsubmit = function(event) {
+    event.preventDefault();
+    alert('Mensaje enviado! Gracias por contactar con nosotros.');
+    document.getElementById('contactName').value = '';
+    document.getElementById('contactMessage').value = '';
+};
+    </script>
 </body>
 </html>
